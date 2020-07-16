@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link href="index.css" rel="stylesheet" type="text/css">
+    <title>Hangman</title>
+    
+  </head>
+  <body>
+    <article>
+      
+      <section>
+        <h1>Hangman Game</h1>
+        <pre id="hanging-pic-0">
+          ______
+          |     |
+                |
+                |
+                |
+                |
+                |
+                |
+                |
+                |
+               _|_
+        </pre>
+        <pre id="hanging-pic-1">
+          ______
+          |     |
+         (      |
+                |
+                |
+                |
+                |
+                |
+                |
+                |
+               _|_
+        </pre>
+        <pre id="hanging-pic-2">
+          ______
+          |     |
+         (_     |
+                |
+                |
+                |
+                |
+                |
+                |
+                |
+               _|_
+        </pre>
+        <pre id="hanging-pic-3">
+          ______
+          |     |
+         (_)    |
+                |
+                |
+                |
+                |
+                |
+                |
+                |
+               _|_
+        </pre>
+        <pre id="hanging-pic-4">
+          ______
+          |     |
+         (_)    |
+         /      |
+                |
+                |
+                |
+                |
+                |
+                |
+               _|_
+        </pre>
+        <pre id="hanging-pic-5">
+          ______
+          |     |
+         (_)    |
+         / \    |
+                |
+                |
+                |
+                |
+                |
+                |
+               _|_
+        </pre>
+        <pre id="hanging-pic-6">
+          ______
+          |     |
+         (_)    |
+         /|\    |
+                |
+                |
+                |
+                |
+                |
+                |
+               _|_
+        </pre>
+        <pre id="hanging-pic-7">
+          ______
+          |     |
+         (_)    |
+         /|\    |
+          |     |
+                |
+                |
+                |
+                |
+                |
+               _|_
+        </pre>
+        <pre id="hanging-pic-8">
+          ______
+          |     |
+         (_)    |
+         /|\    |
+          |     |
+         /      |
+                |
+                |
+                |
+                |
+               _|_
+        </pre>
+        <pre id="hanging-pic-9">
+          ______
+          |     |
+         (_)    |
+         /|\    |
+          |     |
+         / \    |
+                |
+                |
+                |
+               _|_
+        </pre>
+      </section>
+      <br>
+      <section>
+        <form onsubmit="return false">
+          <input id="input-guess" type="text" name="guess" placeholder="guess a letter here">
+          <input id="submit-button" for="guess" type="button" value="Guess">
+          <h3 id="error-h3"></h3>
+        </form>
+        <br>
+        <h3 id="word-h3"></h3>
+        <h3 id="num-of-guesses-h3">Number of Guesses: </h3>
+        <h3 id="incorrect-guesses-h3">Incorrect Guesses: </h3>
+        <h3 id="guessed-letters-h3">Guessed Letters: </h3>
+        <hr>
+      </section>
+      
+    </article>
+    
+    
+    <script src="index.js" type="text/javascript"></script>
+  </body>
+</html>

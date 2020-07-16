@@ -1,0 +1,51 @@
+body{
+  background-color: black;
+  color: white;
+}
+#hanging-pic-0{
+  
+}
+#hanging-pic-1{
+  display: none;
+}
+#hanging-pic-2{
+  display: none;
+}
+#hanging-pic-3{
+  display: none;
+}
+#hanging-pic-4{
+  display: none;
+}
+#hanging-pic-5{
+  display: none;
+}
+#hanging-pic-6{
+  display: none;
+}
+#hanging-pic-7{
+  display: none;
+}
+#hanging-pic-8{
+  display: none;
+}
+#hanging-pic-9{
+  display: none;
+}
+input{
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  border: 0;
+}
+button{
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px;
+}
+#error-h3{
+  color: white;
+}
