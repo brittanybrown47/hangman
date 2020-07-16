@@ -35,6 +35,7 @@ const hangingPicsArray = [hangingPic0, hangingPic1, hangingPic2, hangingPic3, ha
 //function for addEventListener
 function makeAGuess(){
   guess = inputField.value;
+  guess = guess.toLowerCase();
   console.log(guess);
   wordDisplay2 = word.splice();
   //to see if guess is a part of the word

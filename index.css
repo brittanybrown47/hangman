@@ -32,6 +32,9 @@ body{
 #hanging-pic-9{
   display: none;
 }
+#section-2{
+  width: 100vw;
+}
 input{
   border-radius: 5px;
   padding: 10px;
