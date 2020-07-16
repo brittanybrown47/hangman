@@ -17,6 +17,8 @@ const numOfGuessesH3 = document.querySelector("#num-of-guesses-h3");
 const incorrectGuessesH3 = document.querySelector("#incorrect-guesses-h3");
 const guessedLettersH3 = document.querySelector("#guessed-letters-h3");
 const correctLettersH3 = document.querySelector("#correct-letters-h3");
+const wordH2 = document.querySelector("#word-h2");
+
 
 let words = [["h","t","m","l"], ["j","a","v","a","s","c","r","i","p","t"], ["p","r","o","g","r","a","m","m","i","n","g"]];
 let randomNumber = Math.floor((Math.random() * 3))
@@ -26,6 +28,7 @@ let guessedLetters = Array("");
 let guesses = 0;
 let wrongGuesses = 0;
 let guess = "";
+let wordDisplay2;
 
 const hangingPicsArray = [hangingPic0, hangingPic1, hangingPic2, hangingPic3, hangingPic4, hangingPic5, hangingPic6, hangingPic7, hangingPic8, hangingPic9];
 
@@ -33,12 +36,11 @@ const hangingPicsArray = [hangingPic0, hangingPic1, hangingPic2, hangingPic3, ha
 function makeAGuess(){
   guess = inputField.value;
   console.log(guess);
+  wordDisplay2 = word.splice();
   //to see if guess is a part of the word
   if (word.includes(guess)){
       
     }else if (!word.includes(guess)){
-      console.log("gl = " + guessedLetters)
-      console.log("test");
       if(!guessedLetters.includes(guess)){
       hangingPicsArray[wrongGuesses].style.display = "none";
        wrongGuesses++;
@@ -64,8 +66,7 @@ function makeAGuess(){
   }else{
     errorH3.style.display = "none";
   }
-  console.log(word.length);
-  //display and count the correct letters and display win
+  //display word with blanks and count the correct letters and display win
   let rightLetters = "";
   let correctLetters = 0;
   for(i=0; i < word.length; i++){
@@ -73,7 +74,6 @@ function makeAGuess(){
       rightLetters = rightLetters + word[i];
       correctLettersH3.innerHTML = "Correct Letters: " + rightLetters;
       correctLetters++;
-      console.log(correctLetters);
       if(correctLetters == word.length){
         var strWord = word.join("");
         wordH3.innerHTML = "You win! The word was " + strWord;
@@ -82,6 +82,41 @@ function makeAGuess(){
       }
     }
   }
+  //determine wrong Letters
+  /*wrongLetters = "";
+  for(i=0; i < word.length; i++){
+    if (rightLetters)
+  }*/
+  //display the word with hidden characters as _ underscores
+  blankLetters = "";
+  //get blank letters
+  for(i=0; i < word.length; i++){
+    if(!rightLetters.includes(word[i])){
+      blankLetters += word[i];
+    }
+    
+  }
+  
+  console.log(blankLetters);
+  displayWord = word.join("");
+  console.log(displayWord);
+  for (i=0; i<blankLetters.length; i++){
+    currentBlank = blankLetters[i].toString();
+    //console.log(currentBlank);
+    displayWord = displayWord.replace(new RegExp(currentBlank, "g"), "_");
+    console.log(displayWord);
+  }
+  displayWord = displayWord.split("").join(" ");
+  wordH2.innerHTML = displayWord;
+  console.log(displayWord);
+  /*for(i=0; i < blankLetters.length; i++){
+    displayWord.replace(blankLetters[i].toString(), "_");
+    console.log(displayWord);
+    wordH2.innerHTML = displayWord;
+  }*/
+  
+  
+  
   
   if(wrongGuesses == 9){
     errorH3.style.display = "block";
@@ -91,7 +126,5 @@ function makeAGuess(){
   
   
 }
-
-
 //addEventListener for guess button
 button.addEventListener("click", makeAGuess);
