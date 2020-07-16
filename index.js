@@ -16,6 +16,7 @@ const errorH3 = document.querySelector("#error-h3");
 const numOfGuessesH3 = document.querySelector("#num-of-guesses-h3");
 const incorrectGuessesH3 = document.querySelector("#incorrect-guesses-h3");
 const guessedLettersH3 = document.querySelector("#guessed-letters-h3");
+const correctLettersH3 = document.querySelector("#correct-letters-h3");
 
 let words = [["h","t","m","l"], ["j","a","v","a","s","c","r","i","p","t"], ["p","r","o","g","r","a","m","m","i","n","g"]];
 let randomNumber = Math.floor((Math.random() * 3))
@@ -64,18 +65,24 @@ function makeAGuess(){
     errorH3.style.display = "none";
   }
   console.log(word.length);
+  //display and count the correct letters and display win
+  let rightLetters = "";
   let correctLetters = 0;
   for(i=0; i < word.length; i++){
     if(guessedLetters.includes(word[i])){
+      rightLetters = rightLetters + word[i];
+      correctLettersH3.innerHTML = "Correct Letters: " + rightLetters;
       correctLetters++;
       console.log(correctLetters);
       if(correctLetters == word.length){
         var strWord = word.join("");
         wordH3.innerHTML = "You win! The word was " + strWord;
         wordH3.style.color = "green";
+        button.disabled = true;
       }
     }
   }
+  
   if(wrongGuesses == 9){
     errorH3.style.display = "block";
     errorH3.innerHTML = "You Lost. :(";
