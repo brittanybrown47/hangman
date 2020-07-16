@@ -20,8 +20,9 @@ const correctLettersH3 = document.querySelector("#correct-letters-h3");
 const wordH2 = document.querySelector("#word-h2");
 
 
-let words = [["h","t","m","l"], ["j","a","v","a","s","c","r","i","p","t"], ["p","r","o","g","r","a","m","m","i","n","g"]];
-let randomNumber = Math.floor((Math.random() * 3))
+let words = [["h","t","m","l"], ["j","a","v","a","s","c","r","i","p","t"], ["p","r","o","g","r","a","m","m","i","n","g"], ["p","h","p"], ["w","o","r","d","p","r","e","s","s"],["j","a","v","a"], ["a","t","o","m"], ["r","u","b","y"]];
+let randomNumber = Math.floor((Math.random() * words.length));
+console.log(words.length);
 let word = words[randomNumber];
 console.log(word);
 let guessedLetters = Array("");
@@ -36,6 +37,13 @@ const hangingPicsArray = [hangingPic0, hangingPic1, hangingPic2, hangingPic3, ha
 function makeAGuess(){
   guess = inputField.value;
   guess = guess.toLowerCase();
+  letters = /^[A-Za-z]+$/;
+  console.log(letters);
+  if(!guess.match(letters)){
+    errorH3.style.display = "block";
+    errorH3.innerHTML = "Only Enter Letters.";
+  }else{
+  }
   console.log(guess);
   wordDisplay2 = word.splice();
   //to see if guess is a part of the word
@@ -83,11 +91,7 @@ function makeAGuess(){
       }
     }
   }
-  //determine wrong Letters
-  /*wrongLetters = "";
-  for(i=0; i < word.length; i++){
-    if (rightLetters)
-  }*/
+ 
   //display the word with hidden characters as _ underscores
   blankLetters = "";
   //get blank letters
@@ -110,12 +114,6 @@ function makeAGuess(){
   displayWord = displayWord.split("").join(" ");
   wordH2.innerHTML = displayWord;
   console.log(displayWord);
-  /*for(i=0; i < blankLetters.length; i++){
-    displayWord.replace(blankLetters[i].toString(), "_");
-    console.log(displayWord);
-    wordH2.innerHTML = displayWord;
-  }*/
-  
   
   
   
