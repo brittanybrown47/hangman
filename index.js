@@ -66,7 +66,7 @@ function makeAGuess(){
     guessedLetters.push(guess);
     guesses++;
     numOfGuessesH3.innerHTML = "Number of Guesses: " + guesses;
-    guessedLettersH3.innerHTML = "Guessed Letters:" + guessedLetters;
+    guessedLettersH3.innerHTML = "Guessed Letters:" + guessedLetters.join(" ");
   }
   //to check if the guess is more than 1
   if (guess.length > 1){
@@ -76,12 +76,14 @@ function makeAGuess(){
     errorH3.style.display = "none";
   }
   //display word with blanks and count the correct letters and display win
-  let rightLetters = "";
+  let rightLetters = Array("");
   let correctLetters = 0;
   for(i=0; i < word.length; i++){
     if(guessedLetters.includes(word[i])){
-      rightLetters = rightLetters + word[i];
-      correctLettersH3.innerHTML = "Correct Letters: " + rightLetters;
+      if(!rightLetters.includes(word[i])){
+        rightLetters.push(word[i]);
+      }
+      correctLettersH3.innerHTML = "Correct Letters: " + rightLetters.join(" ");
       correctLetters++;
       if(correctLetters == word.length){
         var strWord = word.join("");
